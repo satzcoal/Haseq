@@ -1,0 +1,27 @@
+<h1>Listing banner_imgs</h1>
+
+<table>
+  <tr>
+    <th>Index</th>
+    <th>Content</th>
+    <th>Path</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @banner_imgs.each do |banner_img| %>
+  <tr>
+    <td><%= banner_img.index %></td>
+    <td><%= banner_img.content %></td>
+    <td><%= banner_img.path %></td>
+    <td><%= link_to 'Show', banner_img %></td>
+    <td><%= link_to 'Edit', edit_banner_img_path(banner_img) %></td>
+    <td><%= link_to 'Destroy', banner_img, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Banner img', new_banner_img_path %>

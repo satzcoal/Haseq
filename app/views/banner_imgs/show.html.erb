@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Index:</b>
+  <%= @banner_img.index %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @banner_img.content %>
+</p>
+
+<p>
+  <b>Path:</b>
+  <%= @banner_img.path %>
+</p>
+
+
+<%= link_to 'Edit', edit_banner_img_path(@banner_img) %> |
+<%= link_to 'Back', banner_imgs_path %>

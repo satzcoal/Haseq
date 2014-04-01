@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Index:</b>
+  <%= @page_content.index %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @page_content.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @page_content.content %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%= @page_content.image_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_page_content_path(@page_content) %> |
+<%= link_to 'Back', page_contents_path %>
