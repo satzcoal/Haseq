@@ -1,23 +1,17 @@
 Haseq::Application.routes.draw do
-  resources :page_contents
 
+  namespace :admin do
+    resources :page_contents
+    resources :banner_imgs
+    resources :messages
+    resources :news
+    resources :images
+    resources :catalogs
+    resources :products
+  end
 
-  resources :banner_imgs
-
-
-  resources :messages
-
-
-  resources :news
-
-
-  resources :images
-
-
-  resources :catalogs
-
-
-  resources :products
+  match 'products/catalog/:catid' => 'showproducts#productlist'
+  match 'products/all' => 'showproducts#productlist'
 
 
   # The priority is based upon order of creation:
@@ -69,7 +63,7 @@ Haseq::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'index#show'
 
   # See how all your routes lay out with "rake routes"
 

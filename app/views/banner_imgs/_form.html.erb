@@ -15,13 +15,15 @@
     <%= f.label :index %><br />
     <%= f.number_field :index %>
   </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_field :content %>
-  </div>
+  <% if (:path != nil) && (:path.to_s != 'path') %>
+    <div class="field">
+      <b>banner:</b>
+      <%= image_tag(@banner_img.path) %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :path %><br />
-    <%= f.text_field :path %>
+    <%= f.file_field :filetmp %>
   </div>
   <div class="actions">
     <%= f.submit %>

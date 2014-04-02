@@ -41,13 +41,14 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     uploaded_io = params[:image][:filetmp]
-    @filepath = rand(0xffffff).to_s + uploaded_io.original_filename
-    File.open(Rails.root.join('app', 'assets', 'images', @filepath), 'wb') do |file|
-      file.write(uploaded_io.read)
+    if uploaded_io != nil
+      @filepath = rand(0xffffff).to_s + uploaded_io.original_filename
+      File.open(Rails.root.join('public', 'uploads', 'productimg', @filepath), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+      params[:image].delete('filetmp')
+      params[:image][:path] = '/uploads/productimg/' + @filepath
     end
-
-    params[:image].delete('filetmp')
-    params[:image][:path] = @filepath
 
     @image = Image.new(params[:image])
 
@@ -66,15 +67,16 @@ class ImagesController < ApplicationController
   # PUT /images/1.json
   def update
     uploaded_io = params[:image][:filetmp]
-    @filepath = rand(0xffffff).to_s + uploaded_io.original_filename
-    File.open(Rails.root.join('app', 'assets', 'images', @filepath), 'wb') do |file|
-      file.write(uploaded_io.read)
+    if uploaded_io != nil
+      @filepath = rand(0xffffff).to_s + uploaded_io.original_filename
+      File.open(Rails.root.join('public', 'uploads', 'productimg', @filepath), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+      params[:image].delete('filetmp')
+      params[:image][:path] = '/uploads/productimg/' + @filepath
     end
 
     @image = Image.find(params[:id])
-
-    params[:image].delete('filetmp')
-    params[:image][:path] = @filepath
 
     respond_to do |format|
       if @image.update_attributes(params[:image])

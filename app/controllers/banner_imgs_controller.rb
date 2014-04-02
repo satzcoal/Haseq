@@ -40,6 +40,16 @@ class BannerImgsController < ApplicationController
   # POST /banner_imgs
   # POST /banner_imgs.json
   def create
+    uploaded_io = params[:banner_img][:filetmp]
+    if uploaded_io != nil
+      @filepath = rand(0xffffff).to_s + uploaded_io.original_filename
+      File.open(Rails.root.join('public', 'uploads', 'banner', @filepath), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+      params[:banner_img].delete('filetmp')
+      params[:banner_img][:path] = '/uploads/banner/' + @filepath
+    end
+
     @banner_img = BannerImg.new(params[:banner_img])
 
     respond_to do |format|
@@ -56,6 +66,16 @@ class BannerImgsController < ApplicationController
   # PUT /banner_imgs/1
   # PUT /banner_imgs/1.json
   def update
+    uploaded_io = params[:banner_img][:filetmp]
+    if uploaded_io != nil
+      @filepath = rand(0xffffff).to_s + uploaded_io.original_filename
+      File.open(Rails.root.join('public', 'uploads', 'banner', @filepath), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+      params[:banner_img].delete('filetmp')
+      params[:banner_img][:path] = '/uploads/banner/' + @filepath
+    end
+
     @banner_img = BannerImg.find(params[:id])
 
     respond_to do |format|
