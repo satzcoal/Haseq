@@ -1,7 +1,7 @@
 <div class="breadcrumb">
   <div class="wrap">
     <div class="container">
-      <a href="index.html">Home</a><span>/</span>3 Columns Portfolio
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><%= t(:label_site_product) %>
     </div>
   </div>
 </div>
@@ -14,7 +14,7 @@
           <% if @cat_id == nil %>selected
           <% end %>"><%= t(:label_product_all) %></a></li>
         <% @catalogs.each do |catalog| %>
-          <li><a data-option-value=".category<%= catalog.index %>" class="btn dark_btn
+          <li><a href="#filter" data-option-value=".<%= catalog.index %>" class="btn dark_btn
             <% if @cat_id == catalog.index %>selected
             <% end %>"><%= catalog.name %></a></li>
         <% end %>
@@ -24,124 +24,20 @@
     <div class="row">
       <!-- portfolio_block -->
       <div class="projects">
-        <div class="span4 element category01" data-category="category01">
-          <div class="hover_img">
-            <img src="img/portfolio/1.jpg" alt=""/>
-            <span class="portfolio_zoom"><a href="img/portfolio/1.jpg" rel="prettyPhoto[portfolio1]"></a></span>
-            <span class="portfolio_link"><a href="single_portfolio.html">View item</a></span>
-          </div>
-          <div class="item_description">
-            <h6><a href="single_portfolio.html">Lorem ipsum dolor</a></h6>
+        <% @products.each do |product| %>
+          <div class="span4 element <%= product.catalog.index %>" data-category="<%= product.catalog.index %>">
+            <div class="hover_img">
+              <img src="<%= product.images.first().path %>" alt=""/>
+              <span class="portfolio_zoom"><a href="<%= product.images.first().path %>" rel="prettyPhoto[portfolio1]"></a></span>
+              <span class="portfolio_link"><a href="/products/<%= product.id %>">View item</a></span>
+            </div>
+            <div class="item_description">
+              <h6><a href="/products/<%= product.id %>"><%= product.name %></a></h6>
 
-            <div class="descr">Et dicta essent vis, sed vitae dictas vulputate ea, ex zril quaeque mentitum quo.</div>
-          </div>
-        </div>
-        <div class="span4 element category02" data-category="category02">
-          <div class="hover_img">
-            <img src="img/portfolio/2.jpg" alt=""/>
-            <span class="portfolio_zoom"><a href="img/portfolio/2.jpg" rel="prettyPhoto[portfolio1]"></a></span>
-            <span class="portfolio_link"><a href="single_portfolio.html">View item</a></span>
-          </div>
-          <div class="item_description">
-            <h6><a href="single_portfolio.html">Pri ridens tibique</a></h6>
-
-            <div class="descr">Tota ullum soluta at qui. Et nam malorum deleniti eleifend, ei lorem recusabo vim.</div>
-          </div>
-        </div>
-        <div class="span4 element category03" data-category="category03">
-          <div class="hover_img">
-            <img src="img/portfolio/3.jpg" alt=""/>
-            <span class="portfolio_zoom"><a href="img/portfolio/3.jpg" rel="prettyPhoto[portfolio1]"></a></span>
-            <span class="portfolio_link"><a href="single_portfolio.html">View item</a></span>
-          </div>
-          <div class="item_description">
-            <h6><a href="single_portfolio.html">Solet facilisi graeci</a></h6>
-
-            <div class="descr">Et dicta essent vis, sed vitae dictas vulputate ea, ex zril quaeque mentitum quo.</div>
-          </div>
-        </div>
-        <div class="span4 element category01" data-category="category01">
-          <div class="hover_img">
-            <img src="img/portfolio/4.jpg" alt=""/>
-            <span class="portfolio_zoom"><a href="img/portfolio/4.jpg" rel="prettyPhoto[portfolio1]"></a></span>
-            <span class="portfolio_link"><a href="single_portfolio.html">View item</a></span>
-          </div>
-          <div class="item_description">
-            <h6><a href="single_portfolio.html">Facer ignota docendi</a></h6>
-
-            <div class="descr">Per modo alterum et, pri etiam vituperatoribus in, melius bonorum ornatus mea ut.</div>
-          </div>
-        </div>
-        <div class="span4 element category02" data-category="category02">
-          <div class="hover_img">
-            <img src="img/portfolio/5.jpg" alt=""/>
-            <span class="portfolio_zoom"><a href="img/portfolio/5.jpg" rel="prettyPhoto[portfolio1]"></a></span>
-            <span class="portfolio_link"><a href="single_portfolio.html">View item</a></span>
-          </div>
-          <div class="item_description">
-            <h6><a href="single_portfolio.html">Nec commodo saperet dissentias</a></h6>
-
-            <div class="descr">Cu quo fugit tempor nemore, aeque commodo comprehensam ea sea. Iriure fabellas
-              constituto.
+              <div class="descr"><%= product.shortdesc %></div>
             </div>
           </div>
-        </div>
-        <div class="span4 element category03" data-category="category03">
-          <div class="hover_img">
-            <img src="img/portfolio/6.jpg" alt=""/>
-            <span class="portfolio_zoom"><a href="img/portfolio/6.jpg" rel="prettyPhoto[portfolio1]"></a></span>
-            <span class="portfolio_link"><a href="single_portfolio.html">View item</a></span>
-          </div>
-          <div class="item_description">
-            <h6><a href="single_portfolio.html">Eu tempor omnium sit</a></h6>
-
-            <div class="descr">Vivendo incorrupte ad cum. Id has volutpat accusamus, pri ne iusto tamquam
-              intellegebat.
-            </div>
-          </div>
-        </div>
-        <div class="span4 element category01" data-category="category01">
-          <div class="hover_img">
-            <img src="img/portfolio/7.jpg" alt=""/>
-            <span class="portfolio_zoom"><a href="img/portfolio/7.jpg" rel="prettyPhoto[portfolio1]"></a></span>
-            <span class="portfolio_link"><a href="single_portfolio.html">View item</a></span>
-          </div>
-          <div class="item_description">
-            <h6><a href="single_portfolio.html">Quisque volutpat condimentum</a></h6>
-
-            <div class="descr">Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh quisque condimentum
-              velit.
-            </div>
-          </div>
-        </div>
-        <div class="span4 element category02" data-category="category02">
-          <div class="hover_img">
-            <img src="img/portfolio/8.jpg" alt=""/>
-            <span class="portfolio_zoom"><a href="img/portfolio/8.jpg" rel="prettyPhoto[portfolio1]"></a></span>
-            <span class="portfolio_link"><a href="single_portfolio.html">View item</a></span>
-          </div>
-          <div class="item_description">
-            <h6><a href="single_portfolio.html">Integer euismod lacus luctus</a></h6>
-
-            <div class="descr">Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna
-              augue eget.
-            </div>
-          </div>
-        </div>
-        <div class="span4 element category03" data-category="category03">
-          <div class="hover_img">
-            <img src="img/portfolio/9.jpg" alt=""/>
-            <span class="portfolio_zoom"><a href="img/portfolio/9.jpg" rel="prettyPhoto[portfolio1]"></a></span>
-            <span class="portfolio_link"><a href="single_portfolio.html">View item</a></span>
-          </div>
-          <div class="item_description">
-            <h6><a href="single_portfolio.html">Curabitur sit amet mauris</a></h6>
-
-            <div class="descr">Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede orci
-              risus.
-            </div>
-          </div>
-        </div>
+        <% end %>
         <div class="clear"></div>
       </div>
       <!-- //portfolio_block -->

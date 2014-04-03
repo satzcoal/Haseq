@@ -1,17 +1,18 @@
 Haseq::Application.routes.draw do
 
   namespace :admin do
+    resources :tnews
     resources :page_contents
     resources :banner_imgs
     resources :messages
-    resources :news
     resources :images
     resources :catalogs
     resources :products
   end
 
   match 'products/catalog/:catid' => 'showproducts#productlist'
-  match 'products/all' => 'showproducts#productlist'
+  match 'products' => 'showproducts#productlist'
+  match 'products/:id' => 'showproducts#show'
 
 
   # The priority is based upon order of creation:

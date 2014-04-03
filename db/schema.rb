@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140401031049) do
+ActiveRecord::Schema.define(:version => 20140403073610) do
+
+  create_table "admin_tnews", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "banner_imgs", :force => true do |t|
     t.integer  "index"

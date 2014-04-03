@@ -1,0 +1,39 @@
+<div class="breadcrumb">
+  <div class="wrap">
+    <div class="container">
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><a href="/products"><%= t(:label_site_product) %></a><span>/</span><%= @product.name %>
+    </div>
+  </div>
+</div>
+<!--MAIN CONTENT AREA-->
+<div class="wrap">
+  <div class="container">
+    <div class="row pad25">
+      <div class="span8">
+        <div id="portfolio_carousel" class="carousel slide">
+          <div class="carousel-inner">
+            <% @product.images.each_with_index do |image, i| %>
+              <div class="item
+                <% if i == 0 %>active
+                <% end %>">
+                <img src="<%= image.path %>" alt=""/>
+              </div>
+            <% end %>
+          </div>
+          <a class="left carousel-control" href="#portfolio_carousel" data-slide="prev"></a>
+          <a class="right carousel-control" href="#portfolio_carousel" data-slide="next"></a>
+        </div>
+        <p>
+          <%= @product.introduce %>
+        </p>
+      </div>
+      <div class="span4">
+        <p>
+          <%= @product.desc %>
+        </p>
+      </div>
+    </div>
+    <a class="btn dark_btn marg20" href="javascript:history.back()"><%= t(:label_product_back) %></a>
+  </div>
+</div>
+<!--//MAIN CONTENT AREA-->

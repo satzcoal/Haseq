@@ -811,7 +811,7 @@ legend {
 	text-decoration:none;
 }
 .preloader {
-	background:url(../img/preload_img.gif) center center no-repeat;
+	background:url(/img/preload_img.gif) center center no-repeat;
 	display:block;
 }
 
