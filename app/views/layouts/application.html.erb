@@ -46,19 +46,19 @@
             <nav id="main_menu">
               <div class="menu_wrap">
                 <ul class="nav sf-menu">
-                  <li class="current"><a href="index.html"><%= t(:label_site_home) %></a></li>
-                  <li><a href="/news"><%= t(:label_site_news) %></a></li>
-                  <li><a href="/about"><%= t(:label_site_about) %></a></li>
-                  <li class="sub-menu"><a href="/products/all"><%= t(:label_site_product) %></a>
+                  <li class="current"><a href="/"><%= t(:label_site_home) %></a></li>
+                  <li class="sub-menu"><a href="/products"><%= t(:label_site_product) %></a>
                     <ul>
                       <li><a href="/products"><span>-</span><%= t(:label_product_all) %></a></li>
-                      <% @catalogs = Admin::Catalog.order('1') %>
+                      <% @catalogs = Catalog.order('1') %>
                       <% @catalogs.each do |catalog| %>
-                        <li><a href="/products/catalog/<%= catalog.index %>"><span>-</span><%= catalog.name %></a></li>
+                          <li><a href="/products/catalog/<%= catalog.index %>"><span>-</span><%= catalog.name %></a></li>
                       <% end %>
                     </ul>
                   </li>
-                  <li><a href="contacts.html"><%= t(:label_site_contacts) %></a></li>
+                  <li><a href="/about"><%= t(:label_site_about) %></a></li>
+                  <li><a href="/news"><%= t(:label_site_news) %></a></li>
+                  <li><a href="/contacts"><%= t(:label_site_contacts) %></a></li>
                 </ul>
               </div>
             </nav>
@@ -84,8 +84,8 @@
         <div class="row">
           <div class="span5">
             <div class="foot_logo"><a href="/"><img src="/img/foot_logo.png" alt=""/></a></div>
-            <div class="copyright">Copyright &copy; 2014.Company name All rights
-              reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></div>
+            <div class="copyright">Copyright &copy; 2014.Haseq All rights
+              reserved.</div>
           </div>
           <div class="span7">
             <div class="foot_right_block">
@@ -108,12 +108,11 @@
               <div class="clear"></div>
               <div class="foot_menu">
                 <ul>
-                  <li><a href="index.html" class="current">Home</a></li>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="scaffolding.html">features</a></li>
-                  <li><a href="portfolio_2columns.html">Portfolio</a></li>
-                  <li><a href="blog.html">Blog</a></li>
-                  <li><a href="contacts.html">Contacts</a></li>
+                  <li><a href="/" class="current"><%= t(:label_site_home) %></a></li>
+                  <li><a href="/products"><%= t(:label_site_product) %></a></li>
+                  <li><a href="/about"><%= t(:label_site_about) %></a></li>
+                  <li><a href="/news"><%= t(:label_site_news) %></a></li>
+                  <li><a href="/contacts"><%= t(:label_site_contacts) %></a></li>
                 </ul>
               </div>
             </div>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @tnews.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @tnews.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_tnews_path(@tnews) %> |
+<%= link_to 'Back', tnews_index_path %>

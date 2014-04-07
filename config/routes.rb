@@ -1,19 +1,27 @@
 Haseq::Application.routes.draw do
 
-  namespace :admin do
+  scope "/admin" do
+    resources :images
     resources :tnews
     resources :page_contents
     resources :banner_imgs
     resources :messages
-    resources :images
     resources :catalogs
     resources :products
+
   end
 
-  match 'products/catalog/:catid' => 'showproducts#productlist'
-  match 'products' => 'showproducts#productlist'
-  match 'products/:id' => 'showproducts#show'
+  match '/products/catalog/:catid' => 'showproducts#productlist'
+  match '/products' => 'showproducts#productlist'
+  match '/products/:id' => 'showproducts#show'
 
+  match '/news' => 'shownews#newslist'
+
+  match '/about' => 'showabout#about'
+
+  match '/contacts' => 'showcontacts#contacts'
+
+  match '/admin' => 'admin#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

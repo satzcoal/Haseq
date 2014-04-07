@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class ShowproductsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get newslist" do
+    get :newslist
+    assert_response :success
+  end
+
 end

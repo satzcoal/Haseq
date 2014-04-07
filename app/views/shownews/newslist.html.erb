@@ -1,0 +1,19 @@
+<div class="breadcrumb">
+  <div class="wrap">
+    <div class="container">
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><%= t(:label_site_news) %>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="container">
+    <section>
+      <div class="row">
+        <% @news.each do |snew| %>
+          <h3><%= snew.title %></h3>
+          <p><%= snew.content %></p>
+        <% end %>
+      </div>
+    </section>
+  </div>
+</div>

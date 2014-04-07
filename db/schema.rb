@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20140403073610) do
 
-  create_table "admin_tnews", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "banner_imgs", :force => true do |t|
     t.integer  "index"
     t.binary   "content"
@@ -52,13 +45,6 @@ ActiveRecord::Schema.define(:version => 20140403073610) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "news", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "page_contents", :force => true do |t|
     t.integer  "index"
     t.string   "title"
@@ -74,6 +60,13 @@ ActiveRecord::Schema.define(:version => 20140403073610) do
     t.string   "shortdesc"
     t.text     "desc"
     t.text     "introduce"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tnews", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
