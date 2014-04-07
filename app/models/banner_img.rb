@@ -1,3 +1,4 @@
 class BannerImg < ActiveRecord::Base
-  attr_accessible :content, :index, :path
+  validates :path, :presence => true
+  attr_accessible :content, :nindex, :path
 end

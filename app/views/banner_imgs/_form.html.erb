@@ -1,31 +1,21 @@
 <%= form_for(@banner_img) do |f| %>
-  <% if @banner_img.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@banner_img.errors.count, "error") %> prohibited this banner_img from being saved:</h2>
+    <% if @banner_img.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@banner_img.errors.count, "error") %> prohibited this banner_img from being saved:</h2>
 
-      <ul>
-      <% @banner_img.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% @banner_img.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :index %><br />
-    <%= f.number_field :index %>
-  </div>
-  <% if (:path != nil) && (:path.to_s != 'path') %>
     <div class="field">
-      <b>banner:</b>
-      <%= image_tag(@banner_img.path) %>
+      <%= f.file_field :filetmp %>
     </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :path %><br />
-    <%= f.file_field :filetmp %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <br/>
+    <div class="actions">
+      <%= f.submit t(:label_admin_save), :class => "btn dark_btn" %>
+    </div>
 <% end %>

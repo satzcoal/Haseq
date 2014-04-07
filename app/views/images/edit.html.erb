@@ -1,6 +1,20 @@
-<h1>Editing image</h1>
+<div class="breadcrumb">
+  <div class="wrap">
+    <div class="container">
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><a href="/admin"><%= t(:label_site_admin) %></a><span>/</span><a href="/admin/images"><%= t(:label_admin_image) %></a><span>/</span><a href="/admin/products/<%= @image.product %>"><%= @image.product.name %></a><span>#</span><%= @image.nindex %>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="container">
+    <section>
+      <div class="row">
+        <%= render 'form' %>
 
-<%= render 'form' %>
+        <%= link_to 'Show', @image %> |
+        <%= link_to 'Back', images_path %>
 
-<%= link_to 'Show', @image %> |
-<%= link_to 'Back', images_path %>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,26 +1,43 @@
-<h1>Listing banner_imgs</h1>
+<div class="breadcrumb">
+  <div class="wrap">
+    <div class="container">
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><a href="/admin"><%= t(:label_site_admin) %></a><span>/</span><%= t(:label_admin_banner) %>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="container">
+    <section>
+      <div class="row">
 
-<table>
-  <tr>
-    <th>Index</th>
-    <th>Content</th>
-    <th>Path</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+        <%= button_to t(:label_admin_addbanner), new_banner_img_path, {class: "btn send_btn", :method => :get} %>
+        <table class="table table-bordered">
+          <tr>
+            <th><%= t(:label_admin_quickview) %></th>
+            <th style="width: 80px"><%= t(:label_admin_operation) %></th>
+          </tr>
 
-<% @banner_imgs.each do |banner_img| %>
-  <tr>
-    <td><%= banner_img.index %></td>
-    <td><%= banner_img.path %></td>
-    <td><%= link_to 'Show', banner_img %></td>
-    <td><%= link_to 'Edit', edit_banner_img_path(banner_img) %></td>
-    <td><%= link_to 'Destroy', banner_img, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+          <% @banner_imgs.each do |banner_img| %>
+              <tr>
+                <td>
+                  <% if (banner_img.path != nil) && (banner_img.path.to_s != 'path') %>
+                      <%= image_tag(banner_img.path) %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to t(:label_admin_delete), banner_img, method: :delete, data: {confirm: 'Are you sure?'} %>
+                  <% if banner_img != @banner_imgs.first() %>
+                      <%= link_to t(:label_admin_up), :controller => 'banner_imgs', :action => 'up', id: banner_img.nindex %>
+                  <% end %>
+                  <% if banner_img != @banner_imgs.last() %>
+                      <%= link_to t(:label_admin_down), :controller => 'banner_imgs', :action => 'down', id: banner_img.nindex %>
+                  <% end %>
+                </td>
+              </tr>
+          <% end %>
+        </table>
 
-<br />
-
-<%= link_to 'New Banner img', new_banner_img_path %>
+      </div>
+    </section>
+  </div>
+</div>

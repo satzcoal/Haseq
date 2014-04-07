@@ -1,3 +1,4 @@
 class Catalog < ActiveRecord::Base
-  attr_accessible :index, :name
+  has_many :products
+  attr_accessible :nindex, :name
 end

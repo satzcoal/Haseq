@@ -14,8 +14,8 @@
           <% if @cat_id == nil %>selected
           <% end %>"><%= t(:label_product_all) %></a></li>
         <% @catalogs.each do |catalog| %>
-          <li><a href="#filter" data-option-value=".<%= catalog.index %>" class="btn dark_btn
-            <% if @cat_id == catalog.index %>selected
+          <li><a href="#filter" data-option-value=".<%= catalog.nindex %>" class="btn dark_btn
+            <% if @cat_id == catalog.nindex %>selected
             <% end %>"><%= catalog.name %></a></li>
         <% end %>
       </ul>
@@ -25,7 +25,7 @@
       <!-- portfolio_block -->
       <div class="projects">
         <% @products.each do |product| %>
-          <div class="span4 element <%= product.catalog.index %>" data-category="<%= product.catalog.index %>">
+          <div class="span4 element <%= product.catalog.nindex %>" data-category="<%= product.catalog.nindex %>">
             <div class="hover_img">
               <img src="<%= product.images.first().path %>" alt=""/>
               <span class="portfolio_zoom"><a href="<%= product.images.first().path %>" rel="prettyPhoto[portfolio1]"></a></span>

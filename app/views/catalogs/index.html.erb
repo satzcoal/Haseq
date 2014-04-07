@@ -1,25 +1,43 @@
-<h1>Listing catalogs</h1>
+<div class="breadcrumb">
+  <div class="wrap">
+    <div class="container">
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><a href="/admin"><%= t(:label_site_admin) %></a><span>/</span><%= t(:label_admin_catalog) %>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="container">
+    <section>
+      <div class="row">
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Index</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+        <%= button_to t(:label_admin_addcatalog), new_catalog_path, {class: "btn send_btn", :method => :get} %>
+        <table class="table table-bordered">
+          <tr>
+            <th><%= t(:label_admin_name) %></th>
+            <th><%= t(:label_admin_productnum) %></th>
+            <th><%= t(:label_admin_operation) %></th>
+          </tr>
 
-<% @catalogs.each do |catalog| %>
-  <tr>
-    <td><%= catalog.name %></td>
-    <td><%= catalog.index %></td>
-    <td><%= link_to 'Show', catalog %></td>
-    <td><%= link_to 'Edit', edit_catalog_path(catalog) %></td>
-    <td><%= link_to 'Destroy', catalog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+          <% @catalogs.each do |catalog| %>
+              <tr>
+                <td><%= catalog.name %></td>
+                <td><%= catalog.products.count %>
+                <td>
+                  <%= link_to t(:label_admin_show), catalog_path(catalog) %>
+                  <%= link_to t(:label_admin_edit), edit_catalog_path(catalog) %>
+                  <%= link_to t(:label_admin_delete), catalog, method: :delete, data: {confirm: 'Are you sure?'} %>
+                  <% if catalog != @catalogs.first() %>
+                      <%= link_to t(:label_admin_up), :controller => 'catalogs', :action => 'up', id: catalog.nindex %>
+                  <% end %>
+                  <% if catalog != @catalogs.last() %>
+                      <%= link_to t(:label_admin_down), :controller => 'catalogs', :action => 'down', id: catalog.nindex %>
+                  <% end %>
+                </td>
+              </tr>
+          <% end %>
+        </table>
 
-<br />
-
-<%= link_to 'New Catalog', new_catalog_path %>
+      </div>
+    </section>
+  </div>
+</div>

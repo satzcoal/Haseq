@@ -1,5 +1,16 @@
-<h1>New catalog</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', catalogs_path %>
+<div class="breadcrumb">
+  <div class="wrap">
+    <div class="container">
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><a href="/admin"><%= t(:label_site_admin) %></a><span>/</span><a href="/admin/catalogs"><%= t(:label_admin_catalog) %></a><span>/</span><%= t(:label_admin_addcatalog) %>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="container">
+    <section>
+      <div class="row">
+        <%= render 'form' %>
+      </div>
+    </section>
+  </div>
+</div>

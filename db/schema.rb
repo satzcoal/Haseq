@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140403073610) do
+ActiveRecord::Schema.define(:version => 20140407133523) do
 
   create_table "banner_imgs", :force => true do |t|
-    t.integer  "index"
+    t.integer  "nindex"
     t.binary   "content"
     t.string   "path"
     t.datetime "created_at", :null => false
@@ -23,14 +23,14 @@ ActiveRecord::Schema.define(:version => 20140403073610) do
 
   create_table "catalogs", :force => true do |t|
     t.string   "name"
-    t.integer  "index"
+    t.integer  "nindex"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "images", :force => true do |t|
     t.integer  "product_id"
-    t.integer  "index"
+    t.integer  "nindex"
     t.binary   "content"
     t.string   "path"
     t.datetime "created_at", :null => false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20140403073610) do
   end
 
   create_table "page_contents", :force => true do |t|
-    t.integer  "index"
+    t.integer  "nindex"
     t.string   "title"
     t.text     "content"
     t.integer  "image_id"

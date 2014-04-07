@@ -2,7 +2,7 @@ class CatalogsController < ApplicationController
   # GET /catalogs
   # GET /catalogs.json
   def index
-    @catalogs = Catalog.all
+    @catalogs = Catalog.order('nindex')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,6 +41,7 @@ class CatalogsController < ApplicationController
   # POST /catalogs.json
   def create
     @catalog = Catalog.new(params[:catalog])
+    @catalog.nindex = Catalog.order('nindex').last().nindex + 1
 
     respond_to do |format|
       if @catalog.save
@@ -78,6 +79,38 @@ class CatalogsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to catalogs_url }
       format.json { head :no_content }
+    end
+  end
+
+  def up
+    @current = Catalog.where('nindex = ' + params[:id]).first()
+    @pre = Catalog.where('nindex < ' + params[:id]).order('nindex').last()
+    @tmp = @pre.nindex
+    @pre.nindex = @current.nindex
+    @current.nindex = @tmp
+
+    @current.save
+    @pre.save
+
+    respond_to do |format|
+      format.html { redirect_to catalogs_url }
+      format.json { render json: @catalogs }
+    end
+  end
+
+  def down
+    @current = Catalog.where('nindex = ' + params[:id]).first()
+    @next = Catalog.where('nindex > ' + params[:id]).order('nindex').first()
+    @tmp = @next.nindex
+    @next.nindex = @current.nindex
+    @current.nindex = @tmp
+
+    @current.save
+    @next.save
+
+    respond_to do |format|
+      format.html { redirect_to catalogs_url }
+      format.json { render json: @catalogs }
     end
   end
 end

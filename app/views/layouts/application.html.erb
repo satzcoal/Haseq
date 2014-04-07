@@ -52,7 +52,7 @@
                       <li><a href="/products"><span>-</span><%= t(:label_product_all) %></a></li>
                       <% @catalogs = Catalog.order('1') %>
                       <% @catalogs.each do |catalog| %>
-                          <li><a href="/products/catalog/<%= catalog.index %>"><span>-</span><%= catalog.name %></a></li>
+                          <li><a href="/products/catalog/<%= catalog.nindex %>"><span>-</span><%= catalog.name %></a></li>
                       <% end %>
                     </ul>
                   </li>
@@ -132,7 +132,6 @@
 <script type="text/javascript" src="/js/jquery.prettyPhoto.js"></script>
 <script src="/js/jquery.isotope.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="/js/sorting.js"></script>
-<script type="text/javascript" src="/js/jquery.preloader.js"></script>
 <script type="text/javascript" src="/js/jquery.tweet.js"></script>
 <script type="text/javascript" src="/js/jquery.mobile.customized.min.js"></script>
 <script type="text/javascript" src="/js/camera.js"></script>

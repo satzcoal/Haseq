@@ -2,7 +2,7 @@ class BannerImgsController < ApplicationController
   # GET /banner_imgs
   # GET /banner_imgs.json
   def index
-    @banner_imgs = BannerImg.all
+    @banner_imgs = BannerImg.order('2')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,17 +40,20 @@ class BannerImgsController < ApplicationController
   # POST /banner_imgs
   # POST /banner_imgs.json
   def create
-    uploaded_io = params[:banner_img][:filetmp]
-    if uploaded_io != nil
-      @filepath = rand(0xffffff).to_s + uploaded_io.original_filename
-      File.open(Rails.root.join('public', 'uploads', 'banner', @filepath), 'wb') do |file|
-        file.write(uploaded_io.read)
+    if params[:banner_img] != nil
+      uploaded_io = params[:banner_img][:filetmp]
+      if uploaded_io != nil
+        @filepath = rand(0xffffff).to_s + uploaded_io.original_filename
+        File.open(Rails.root.join('public', 'uploads', 'banner', @filepath), 'wb') do |file|
+          file.write(uploaded_io.read)
+        end
+        params[:banner_img].delete('filetmp')
+        params[:banner_img][:path] = '/uploads/banner/' + @filepath
       end
-      params[:banner_img].delete('filetmp')
-      params[:banner_img][:path] = '/uploads/banner/' + @filepath
     end
 
     @banner_img = BannerImg.new(params[:banner_img])
+    @banner_img.nindex = BannerImg.order('nindex').last().nindex + 1
 
     respond_to do |format|
       if @banner_img.save
@@ -61,30 +64,30 @@ class BannerImgsController < ApplicationController
         format.json { render json: @banner_img.errors, status: :unprocessable_entity }
       end
     end
-  end
 
-  # PUT /banner_imgs/1
-  # PUT /banner_imgs/1.json
-  def update
-    uploaded_io = params[:banner_img][:filetmp]
-    if uploaded_io != nil
-      @filepath = rand(0xffffff).to_s + uploaded_io.original_filename
-      File.open(Rails.root.join('public', 'uploads', 'banner', @filepath), 'wb') do |file|
-        file.write(uploaded_io.read)
+    # PUT /banner_imgs/1
+    # PUT /banner_imgs/1.json
+    def update
+      uploaded_io = params[:banner_img][:filetmp]
+      if uploaded_io != nil
+        @filepath = rand(0xffffff).to_s + uploaded_io.original_filename
+        File.open(Rails.root.join('public', 'uploads', 'banner', @filepath), 'wb') do |file|
+          file.write(uploaded_io.read)
+        end
+        params[:banner_img].delete('filetmp')
+        params[:banner_img][:path] = '/uploads/banner/' + @filepath
       end
-      params[:banner_img].delete('filetmp')
-      params[:banner_img][:path] = '/uploads/banner/' + @filepath
-    end
 
-    @banner_img = BannerImg.find(params[:id])
+      @banner_img = BannerImg.find(params[:id])
 
-    respond_to do |format|
-      if @banner_img.update_attributes(params[:banner_img])
-        format.html { redirect_to @banner_img, notice: 'Banner img was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @banner_img.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @banner_img.update_attributes(params[:banner_img])
+          format.html { redirect_to @banner_img, notice: 'Banner img was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @banner_img.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -94,6 +97,38 @@ class BannerImgsController < ApplicationController
   def destroy
     @banner_img = BannerImg.find(params[:id])
     @banner_img.destroy
+
+    respond_to do |format|
+      format.html { redirect_to banner_imgs_url }
+      format.json { head :no_content }
+    end
+  end
+
+  def up
+    @current = BannerImg.where('nindex = ' + params[:id]).first()
+    @pre = BannerImg.where('nindex < ' + params[:id]).order('nindex').last()
+    @tmp = @pre.nindex
+    @pre.nindex = @current.nindex
+    @current.nindex = @tmp
+
+    @current.save
+    @pre.save
+
+    respond_to do |format|
+      format.html { redirect_to banner_imgs_url }
+      format.json { head :no_content }
+    end
+  end
+
+  def down
+    @current = BannerImg.where('nindex = ' + params[:id]).first()
+    @next = BannerImg.where('nindex > ' + params[:id]).order('nindex').first()
+    @tmp = @next.nindex
+    @next.nindex = @current.nindex
+    @current.nindex = @tmp
+
+    @current.save
+    @next.save
 
     respond_to do |format|
       format.html { redirect_to banner_imgs_url }

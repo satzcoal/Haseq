@@ -1,15 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="breadcrumb">
+  <div class="wrap">
+    <div class="container">
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><a href="/admin"><%= t(:label_site_admin) %></a><span>/</span><a href="/admin/catalogs"><%= t(:label_admin_catalog) %></a><span>/</span><%= @catalog.name %>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="container">
+    <section>
+      <div class="row">
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @catalog.name %>
-</p>
+        <%= button_to t(:label_product_back), catalogs_path, {class: "btn dark_btn", :method => :get} %>
 
-<p>
-  <b>Index:</b>
-  <%= @catalog.index %>
-</p>
+        <p>
+          <b><%= t(:label_admin_name) %>:</b>
+          <%= @catalog.name %>
+        </p>
 
+        <%= button_to t(:label_admin_edit), edit_catalog_path(@catalog), {class: "btn send_btn", :method => :get} %>
 
-<%= link_to 'Edit', edit_catalog_path(@catalog) %> |
-<%= link_to 'Back', catalogs_path %>
+      </div>
+    </section>
+  </div>
+</div>

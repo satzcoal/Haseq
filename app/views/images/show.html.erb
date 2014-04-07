@@ -1,13 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="breadcrumb">
+  <div class="wrap">
+    <div class="container">
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><a href="/admin"><%= t(:label_site_admin) %></a><span>/</span><a href="/admin/images"><%= t(:label_admin_image) %></a><span>/</span><a href="/admin/products/<%= @image.product %>"><%= @image.product.name %></a><span>#</span><%= @image.nindex %>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="container">
+    <section>
+      <div class="row">
+        <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Product:</b>
-  <%= @image.product_id %>
-</p>
-
-<p>
-  <b>Index:</b>
-  <%= @image.index %>
+  <b><%= t(:label_site_product) %>:</b>
+  <%= @image.product.name %>
 </p>
 
 <p>
@@ -18,3 +24,8 @@
 
 <%= link_to 'Edit', edit_image_path(@image) %> |
 <%= link_to 'Back', images_path %>
+
+      </div>
+    </section>
+  </div>
+</div>

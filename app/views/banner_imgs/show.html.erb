@@ -1,15 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="breadcrumb">
+  <div class="wrap">
+    <div class="container">
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><a href="/admin"><%= t(:label_site_admin) %></a><span>/</span><a href="/admin/banner_imgs"><%= t(:label_admin_banner) %></a><span>/</span><%= t(:label_admin_addbanner) %>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="container">
+    <section>
+      <div class="row">
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Index:</b>
-  <%= @banner_img.index %>
-</p>
+        <%= button_to t(:label_product_back), banner_imgs_path, {class: "btn dark_btn", :method => :get} %>
 
-<p>
-  <b>Image:</b>
-  <img src="<%= @banner_img.path %>"/>
-</p>
+        <p>
+          <img src="<%= @banner_img.path %>"/>
+        </p>
 
+      </div>
+    </section>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_banner_img_path(@banner_img) %> |
-<%= link_to 'Back', banner_imgs_path %>

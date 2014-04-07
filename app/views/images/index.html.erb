@@ -1,27 +1,40 @@
-<h1>Listing images</h1>
+<div class="breadcrumb">
+  <div class="wrap">
+    <div class="container">
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><a href="/admin"><%= t(:label_site_admin) %></a><span>/</span><%= t(:label_admin_image) %>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="container">
+    <section>
+      <div class="row">
 
-<table>
-  <tr>
-    <th>Product</th>
-    <th>Index</th>
-    <th>Path</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+        <%= link_to 'New Image', new_image_path %>
+        <table>
+          <tr>
+            <th>Product</th>
+            <th>Index</th>
+            <th>Path</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
 
-<% @images.each do |image| %>
-  <tr>
-    <td><%= image.product_id %></td>
-    <td><%= image.index %></td>
-    <td><%= image.path %></td>
-    <td><%= link_to 'Show', image %></td>
-    <td><%= link_to 'Edit', edit_image_path(image) %></td>
-    <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+          <% @images.each do |image| %>
+              <tr>
+                <td><%= image.product_id %></td>
+                <td><%= image.nindex %></td>
+                <td><%= image.path %></td>
+                <td><%= link_to 'Show', image %></td>
+                <td><%= link_to 'Edit', edit_image_path(image) %></td>
+                <td><%= link_to 'Destroy', image, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+              </tr>
+          <% end %>
+        </table>
 
-<br />
+      </div>
+    </section>
+  </div>
+</div>
 
-<%= link_to 'New Image', new_image_path %>

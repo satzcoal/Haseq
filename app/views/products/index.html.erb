@@ -1,31 +1,40 @@
-<h1>Listing products</h1>
+<div class="breadcrumb">
+  <div class="wrap">
+    <div class="container">
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><a href="/admin"><%= t(:label_site_admin) %></a><span>/</span><%= t(:label_admin_product) %>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="container">
+    <section>
+      <div class="row">
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Catalog</th>
-    <th>Shortdesc</th>
-    <th>Desc</th>
-    <th>Introduce</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+        <table class="table table-bordered">
+          <tr>
+            <th style="width: 80px"><%= t(:label_admin_name) %></th>
+            <th style="width: 80px"><%= t(:label_site_catalog) %></th>
+            <th><%= t(:label_admin_shortdesc) %></th>
+            <th><%= t(:label_admin_picnum) %></th>
+            <th><%= t(:label_admin_operation) %></th>
+          </tr>
 
-<% @products.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= product.catalog_id %></td>
-    <td><%= product.shortdesc %></td>
-    <td><%= product.desc %></td>
-    <td><%= product.introduce %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+          <% @products.each do |product| %>
+              <tr>
+                <td><%= product.name %></td>
+                <td><%= product.catalog.name %></td>
+                <td><%= product.shortdesc %></td>
+                <td><%= product.images.count %></td>
+                <td>
+                  <%= link_to 'Show', product %>
+                  <%= link_to 'Edit', edit_product_path(product) %>
+                  <%= link_to 'Destroy', product, method: :delete, data: {confirm: 'Are you sure?'} %>
+                </td>
+              </tr>
+          <% end %>
+        </table>
 
-<br />
-
-<%= link_to 'New Product', new_product_path %>
+      </div>
+    </section>
+  </div>
+</div>

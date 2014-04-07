@@ -1,5 +1,5 @@
 class IndexController < ApplicationController
   def show
-    @banners = BannerImg.order("2")
+    @banners = BannerImg.order('nindex')
   end
 end

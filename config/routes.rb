@@ -1,5 +1,13 @@
 Haseq::Application.routes.draw do
 
+
+
+  match '/admin/banner_imgs/up' => 'banner_imgs#up'
+  match '/admin/banner_imgs/down' => 'banner_imgs#down'
+
+  match '/admin/catalogs/up' => 'catalogs#up'
+  match '/admin/catalogs/down' => 'catalogs#down'
+
   scope "/admin" do
     resources :images
     resources :tnews
@@ -8,7 +16,6 @@ Haseq::Application.routes.draw do
     resources :messages
     resources :catalogs
     resources :products
-
   end
 
   match '/products/catalog/:catid' => 'showproducts#productlist'
@@ -22,6 +29,7 @@ Haseq::Application.routes.draw do
   match '/contacts' => 'showcontacts#contacts'
 
   match '/admin' => 'admin#show'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
