@@ -1,3 +1,4 @@
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=GnVG65MGgpzAp3gNPABWNSC1"></script>
 <div class="breadcrumb">
   <div class="wrap">
     <div class="container">
@@ -11,7 +12,12 @@
       <div class="row">
         <div class="span4">
           <h2 class="title"><span><%= t(:label_contact_info) %></span></h2>
-          <div id="map"><iframe width="100%" height="310" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=london&sll=37.0625,-95.677068&sspn=42.631141,90.263672&ie=UTF8&hq=&hnear=London,+United+Kingdom&ll=51.500141,-0.126257&spn=0.026448,0.039396&z=14&output=embed"></iframe></div>
+          <div id="map" style="height: 270px"></div>
+          <script type="text/javascript">
+              var map = new BMap.Map("map");          // 创建地图实例
+              var point = new BMap.Point(120.143988, 30.293841);  // 创建点坐标
+              map.centerAndZoom(point, 15);                 // 初始化地图，设置中心点坐标和地图级别
+          </script>
           <p>3896 Kenwood Place<br/>Fort Lauderdale, FL 33301</p>
           <p>Phone: 1-500-677-5694<br/>Fax: 1-500-256-2768<br/>Email: <a href="mailto:#">info@yoursitename.com</a><br/>Web: <a href="#">http://yoursitename.com</a></p>
         </div>
