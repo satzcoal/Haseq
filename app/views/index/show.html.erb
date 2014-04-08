@@ -1,16 +1,16 @@
 <script type="text/javascript">
-  $(document).ready(function () {
-    //Slider
-    $('#camera_wrap_1').camera();
+    $(document).ready(function () {
+        //Slider
+        $('#camera_wrap_1').camera();
 
-    //Featured works & latest posts
-    $('#mycarousel, #mycarousel2, #newscarousel').jcarousel();
-  });
+        //Featured works & latest posts
+        $('#mycarousel, #mycarousel2, #newscarousel').jcarousel();
+    });
 </script>
 <div id="main_slider">
   <div class="camera_wrap" id="camera_wrap_1">
     <% @banners.each do |banner| %>
-      <div data-src="<%= banner.path %>"></div>
+        <div data-src="<%= banner.path %>"></div>
     <% end %>
   </div>
   <!-- #camera_wrap_1 -->
@@ -74,78 +74,22 @@
     <div class="row">
       <div class="span12">
         <ul id="mycarousel2" class="jcarousel-skin-tango">
-          <li>
-            <div class="post_carousel">
-              <img src="img/home_blog/1.jpg" alt=""/>
+          <% @newposts.each do |newpost| %>
+              <li>
+                <div class="post_carousel">
+                  <% if newpost.images.count != 0 %>
+                      <img src="<%= newpost.images.first().path %>" alt=""/>
+                  <% else %>
+                      <img src="/images/preload_img.gif" alt=""/>
+                  <% end %>
 
-              <div class="title_t"><a href="#">ipsum dolor ac egestas mas</a></div>
-              <div class="post_meta">
-                Posted by <a href="#">John Doe</a> / 15 apr / In <a href="#">Vacation</a>
-              </div>
-              Ut nisl turpis, tristique tincidunt cursus sed, aliquet nec odio. Integer ornare tincidunt neque a
-              ristiquet phasellus mollis tortor. <a href="#" class="arrow_link">Read more...</a>
-            </div>
-          </li>
-          <li>
-            <div class="post_carousel">
-              <img src="img/home_blog/2.jpg" alt=""/>
 
-              <div class="title_t"><a href="#"><%= t(:label_site_taobao) %></a></div>
-              <div class="post_meta">
-                Posted by <a href="#">John Doe</a> / 15 apr / In <a href="#">Vacation</a>
-              </div>
-              Ut nisl turpis, tristique tincidunt cursus sed, aliquet nec odio. Integer ornare tincidunt neque a
-              ristiquet phasellus mollis tortor. <a href="#" class="arrow_link">Read more...</a>
-            </div>
-          </li>
-          <li>
-            <div class="post_carousel">
-              <img src="img/home_blog/3.jpg" alt=""/>
-
-              <div class="title_t"><a href="#">Quisque sodales dolor</a></div>
-              <div class="post_meta">
-                Posted by <a href="#">John Doe</a> / 15 apr / In <a href="#">Vacation</a>
-              </div>
-              Ut nisl turpis, tristique tincidunt cursus sed, aliquet nec odio. Integer ornare tincidunt neque a
-              ristiquet phasellus mollis tortor. <a href="#" class="arrow_link">Read more...</a>
-            </div>
-          </li>
-          <li>
-            <div class="post_carousel">
-              <img src="img/home_blog/4.jpg" alt=""/>
-
-              <div class="title_t"><a href="#">ipsum dolor ac egestas mas</a></div>
-              <div class="post_meta">
-                Posted by <a href="#">John Doe</a> / 15 apr / In <a href="#">Vacation</a>
-              </div>
-              Ut nisl turpis, tristique tincidunt cursus sed, aliquet nec odio. Integer ornare tincidunt neque a
-              ristiquet phasellus mollis tortor. <a href="#" class="arrow_link">Read more...</a>
-            </div>
-          </li>
-          <li>
-            <div class="post_carousel">
-              <img src="img/home_blog/1.jpg" alt=""/>
-
-              <div class="title_t"><a href="#">Tristique cursus tincidunt</a></div>
-              <div class="post_meta">
-                Posted by <a href="#">John Doe</a> / 15 apr / In <a href="#">Vacation</a>
-              </div>
-              Ut nisl turpis, tristique tincidunt cursus sed, aliquet nec odio. Integer ornare tincidunt neque a
-              ristiquet phasellus mollis tortor. <a href="#" class="arrow_link">Read more...</a>
-            </div>
-          </li>
-          <li>
-            <div class="post_carousel">
-              <img src="img/home_blog/2.jpg" alt=""/>
-
-              <div class="title_t"><a href="#">ipsum dolor ac egestas mas</a></div>
-              <div class="post_meta">
-                Posted by <a href="#">John Doe</a> / 15 apr / In <a href="#">Vacation</a>
-              </div>
-              Ut nisl turpis, tristique tincidunt cursus sed, aliquet nec odio. Integer ornare tincidunt neque a
-              ristiquet phasellus mollis tortor. <a href="#" class="arrow_link">Read more...</a>
-            </div>
-          </li>
+                  <div class="title_t"><a href="/products/<%= newpost.id %>"><%= newpost.name %></a></div>
+                  <%= newpost.desc %>
+                  <a href="/products/<%= newpost.id %>" class="arrow_link"><%= t(:label_site_readmore) %></a>
+                </div>
+              </li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -160,33 +104,67 @@
       <div class="span6">
         <h2 class="title">egestas sed convallis metus!</h2>
 
-        <p>Vestibulum tincidunt ultricies aliquam. Donec porta mi nec tortor sagittis rhoncus. Nunc ante arcu, ornaresit
+        <p>Vestibulum tincidunt ultricies aliquam. Donec porta mi nec tortor sagittis rhoncus. Nunc ante
+          arcu, ornaresit
           gravida rutrum ut, facilisis et lacus. Aliquam mauris arcu, interdum eu fermentum tincidunt.</p>
         <ul class="the-icons grey">
           <li><i class="icon-time"></i> Curabitur eu placerat massa.</li>
           <li><i class="icon-star"></i> Integer adipiscing velit nec purus facilisis ut pharetra!</li>
-          <li><i class="icon-camera"></i> Nunc mollis, nisl vel tincidunt vestibulum, lacus libero mollis urna, eu
+          <li><i class="icon-camera"></i> Nunc mollis, nisl vel tincidunt vestibulum, lacus libero mollis
+            urna, eu
             dapibus lacus nisi et nulla.
           </li>
-          <li><i class="icon-qrcode"></i> Curabitur veltpat magna. Pellentesque pellentesque dapibus dictum.</li>
+          <li><i class="icon-qrcode"></i> Curabitur veltpat magna. Pellentesque pellentesque dapibus
+            dictum.
+          </li>
           <li><i class="icon-user"></i> Nulla ut erat ut massa molestie commodo.</li>
         </ul>
-        <p>Duis vel ligula et libero iaculis facilisis in vel justo. Duis lacinia orci ut tellus interdum dignissim.
-          Fusce eugei scelerisque enim. Phasellus nec libero lectus. Quisque posuere mi non nibh facilisis semper. Donec
+        <p>Duis vel ligula et libero iaculis facilisis in vel justo. Duis lacinia orci ut tellus interdum
+          dignissim.
+          Fusce eugei scelerisque enim. Phasellus nec libero lectus. Quisque posuere mi non nibh facilisis
+          semper. Donec
           lorem suscipit est sed mauris eleifend congue. Class taciti sociosqu litora torquent
           <a href="#" class="arrow_link">per conubia.</a></p>
       </div>
       <div class="span6">
         <h2 class="title"><%= t(:label_site_news2) %></h2>
         <ul id="newscarousel" class="jcarousel-skin-tango">
+          <% @newtnewses.each do |newtnews| %>
+              <li>
+                <div class="news_date"><%= newtnews.created_at.strftime('%b %d').to_s %>
+                  <span><%= newtnews.created_at.year %></span></div>
+                <div class="news_t"><a href="/news"><%= newtnews.title %></a></div>
+                <div class="news">Posted by admin</div>
+                <div class="news_info"><%= newtnews.content[0,300] %>
+                  <a href="/news"><%= t(:label_site_readmore) %></a>
+                </div>
+                <div class="clear"></div>
+              </li>
+          <% end %>
+          <li>
+            <div class="news_date">05 apr<span>2019</span></div>
+            <div class="news_t"><a href="#">eget &amp; massa viviamu marius mas</a></div>
+            <div class="news">Posted by <a href="#">Anna Smith</a> / In <a href="#">City</a><br/>Tags:
+              <a href="#">eget</a>, <a href="#">mauris</a></div>
+            <div class="news_info">Cursus sed, aliquet nec odio. Integer ornare tincidunt neque a
+              tristique. Phasellus
+              porttitor millis tortor etoq vestibulum. Quisque ont lacus toirtor uis accumsan nibh. Lorem
+              ipsum dolor
+              sit amet, consectetur adipiscing elit. Nullam ulvinarteses em sed.
+              <a href="#">Read more...</a></div>
+            <div class="clear"></div>
+          </li>
           <li>
             <div class="news_date">15 apr<span>2019</span></div>
             <div class="news_t"><a href="#">Sed massa dui, porta corper ac varius!</a></div>
             <div class="news">Posted by <a href="#">Anna Smith</a> / In <a href="#">City</a><br/>Tags:
               <a href="#">eget</a>, <a href="#">mauris</a></div>
-            <div class="news_info">Tristique tincidunt cursus sed, ornare ncidunt eque a tristique. Phasellus porttitor
-              mollis tortor etoq vestibulum. Quisque non lacus tortor, quis cumsan nibh. Lorem ipsum dolor sit amet,
-              consectetur icing elit. Nullam pulvinarteses lorem sed dui euismod eget. <a href="#">Read more...</a>
+            <div class="news_info">Tristique tincidunt cursus sed, ornare ncidunt eque a tristique.
+              Phasellus porttitor
+              mollis tortor etoq vestibulum. Quisque non lacus tortor, quis cumsan nibh. Lorem ipsum dolor
+              sit amet,
+              consectetur icing elit. Nullam pulvinarteses lorem sed dui euismod eget.
+              <a href="#">Read more...</a>
             </div>
             <div class="clear"></div>
           </li>
@@ -195,30 +173,12 @@
             <div class="news_t"><a href="#">eget &amp; massa viviamu marius mas</a></div>
             <div class="news">Posted by <a href="#">Anna Smith</a> / In <a href="#">City</a><br/>Tags:
               <a href="#">eget</a>, <a href="#">mauris</a></div>
-            <div class="news_info">Cursus sed, aliquet nec odio. Integer ornare tincidunt neque a tristique. Phasellus
-              porttitor millis tortor etoq vestibulum. Quisque ont lacus toirtor uis accumsan nibh. Lorem ipsum dolor
-              sit amet, consectetur adipiscing elit. Nullam ulvinarteses em sed. <a href="#">Read more...</a></div>
-            <div class="clear"></div>
-          </li>
-          <li>
-            <div class="news_date">15 apr<span>2019</span></div>
-            <div class="news_t"><a href="#">Sed massa dui, porta corper ac varius!</a></div>
-            <div class="news">Posted by <a href="#">Anna Smith</a> / In <a href="#">City</a><br/>Tags:
-              <a href="#">eget</a>, <a href="#">mauris</a></div>
-            <div class="news_info">Tristique tincidunt cursus sed, ornare ncidunt eque a tristique. Phasellus porttitor
-              mollis tortor etoq vestibulum. Quisque non lacus tortor, quis cumsan nibh. Lorem ipsum dolor sit amet,
-              consectetur icing elit. Nullam pulvinarteses lorem sed dui euismod eget. <a href="#">Read more...</a>
-            </div>
-            <div class="clear"></div>
-          </li>
-          <li>
-            <div class="news_date">05 apr<span>2019</span></div>
-            <div class="news_t"><a href="#">eget &amp; massa viviamu marius mas</a></div>
-            <div class="news">Posted by <a href="#">Anna Smith</a> / In <a href="#">City</a><br/>Tags:
-              <a href="#">eget</a>, <a href="#">mauris</a></div>
-            <div class="news_info">Cursus sed, aliquet nec odio. Integer ornare tincidunt neque a tristique. Phasellus
-              porttitor millis tortor etoq vestibulum. Quisque ont lacus toirtor uis accumsan nibh. Lorem ipsum dolor
-              sit amet, consectetur adipiscing elit. Nullam ulvinarteses em sed. <a href="#">Read more...</a></div>
+            <div class="news_info">Cursus sed, aliquet nec odio. Integer ornare tincidunt neque a
+              tristique. Phasellus
+              porttitor millis tortor etoq vestibulum. Quisque ont lacus toirtor uis accumsan nibh. Lorem
+              ipsum dolor
+              sit amet, consectetur adipiscing elit. Nullam ulvinarteses em sed.
+              <a href="#">Read more...</a></div>
             <div class="clear"></div>
           </li>
         </ul>

@@ -9,26 +9,32 @@
   <div class="container">
     <section>
       <div class="row">
-
-        <%= link_to 'New Image', new_image_path %>
-        <table>
+        <%= button_to t(:label_admin_addimage), new_image_path, {class: "btn send_btn", :method => :get} %>
+        <table class="table table-bordered">
           <tr>
-            <th>Product</th>
-            <th>Index</th>
-            <th>Path</th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th><%= t(:label_site_product) %></th>
+            <th><%= t(:label_admin_imagetype) %></th>
+            <th><%= t(:label_admin_quickview) %></th>
+            <th><%= t(:label_admin_operation) %></th>
           </tr>
 
           <% @images.each do |image| %>
               <tr>
-                <td><%= image.product_id %></td>
-                <td><%= image.nindex %></td>
-                <td><%= image.path %></td>
-                <td><%= link_to 'Show', image %></td>
-                <td><%= link_to 'Edit', edit_image_path(image) %></td>
-                <td><%= link_to 'Destroy', image, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+                <td><%= image.product.name %></td>
+                <td>
+                  <% if image.imagetype == '1' %>
+                      <%= t(:label_admin_indexpic) %>
+                  <% else %>
+                      <%= t(:label_admin_productpic) %>
+                  <% end %>
+                <td>
+                  <% if (image.path != nil) && (image.path.to_s != 'path') %>
+                      <%= image_tag(image.path) %>
+                  <% end %>
+                </td>
+                <td><%= link_to t(:label_admin_show), image %></td>
+                <td><%= link_to t(:label_admin_edit), edit_image_path(image) %></td>
+                <td><%= link_to t(:label_admin_delete), image, method: :delete, data: {confirm: 'Are you sure?'} %></td>
               </tr>
           <% end %>
         </table>

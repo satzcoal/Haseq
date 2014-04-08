@@ -1,7 +1,7 @@
 <div class="breadcrumb">
   <div class="wrap">
     <div class="container">
-      <a href="/"><%= t(:label_site_home) %></a><span>/</span><a href="/admin"><%= t(:label_site_admin) %></a><span>/</span><a href="/admin/images"><%= t(:label_admin_image) %></a><span>/</span><a href="/admin/products/<%= @image.product %>"><%= @image.product.name %></a><span>#</span><%= @image.nindex %>
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><a href="/admin"><%= t(:label_site_admin) %></a><span>/</span><a href="/admin/images"><%= t(:label_admin_image) %></a><span>/</span><a href="/admin/products/<%= @image.product.id %>"><%= @image.product.name %></a><span>#</span><%= @image.nindex %>
     </div>
   </div>
 </div>
@@ -11,19 +11,28 @@
       <div class="row">
         <p id="notice"><%= notice %></p>
 
-<p>
-  <b><%= t(:label_site_product) %>:</b>
-  <%= @image.product.name %>
-</p>
+        <p>
+          <b><%= t(:label_site_product) %>:</b>
+          <%= @image.product.name %>
+        </p>
 
-<p>
-  <b>Image:</b>
-  <%= image_tag(@image.path) %>
-</p>
+        <p>
+          <b><%= t(:label_admin_imagetype) %>:</b>
+          <% if @image.imagetype == '1' %>
+              <%= t(:label_admin_indexpic) %>
+          <% else %>
+              <%= t(:label_admin_productpic) %>
+          <% end %>
+        </p>
+
+        <p>
+          <b>Image:</b>
+          <%= image_tag(@image.path) %>
+        </p>
 
 
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+        <%= link_to 'Edit', edit_image_path(@image) %> |
+        <%= link_to 'Back', images_path %>
 
       </div>
     </section>

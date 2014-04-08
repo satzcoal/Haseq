@@ -1,4 +1,14 @@
-<h1>Listing tnews</h1>
+<div class="breadcrumb">
+  <div class="wrap">
+    <div class="container">
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><a href="/admin"><%= t(:label_site_admin) %></a><span>/</span><%= t(:label_admin_tnews) %>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="container">
+    <section>
+      <div class="row">
 
 <table>
   <tr>
@@ -23,3 +33,8 @@
 <br />
 
 <%= link_to 'New Tnews', new_tnews_path %>
+
+      </div>
+    </section>
+  </div>
+</div>

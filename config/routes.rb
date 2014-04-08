@@ -9,6 +9,8 @@ Haseq::Application.routes.draw do
   match '/admin/catalogs/up' => 'catalogs#up'
   match '/admin/catalogs/down' => 'catalogs#down'
 
+  match '/admin/products/changeshowindex' => 'products#changeshowindex'
+
   scope "/admin" do
     resources :images
     resources :tnews

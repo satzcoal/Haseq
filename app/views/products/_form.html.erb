@@ -13,32 +13,26 @@
 
   <div class="field">
     <%= f.label t(:label_admin_name) %>
-    <br/>
     <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label t(:label_site_catalog) %>
-    <br/>
     <%= f.select :catalog_id, Catalog.order('nindex').collect { |c| [c.name, c.id] } %>
   </div>
   <div class="field">
     <%= f.label t(:label_admin_isshowindex) %>
-    <br/>
     <%= f.check_box :isshowindex %>
   </div>
   <div class="field">
     <%= f.label t(:label_admin_shortdesc) %>
-    <br/>
     <%= f.text_field :shortdesc %>
   </div>
   <div class="field">
     <%= f.label t(:label_admin_desc) %>
-    <br/>
     <%= f.text_area :desc %>
   </div>
   <div class="field">
     <%= f.label t(:label_admin_intro) %>
-    <br/>
     <%= f.text_area :introduce %>
   </div>
   <div class="actions">

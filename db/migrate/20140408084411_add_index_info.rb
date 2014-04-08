@@ -1,7 +1,7 @@
 class AddIndexInfo < ActiveRecord::Migration
   def up
-    add_column :products, :boolean, :isshowindex
-    add_column :tnews, :boolean, :isshowindex
+    add_column :products, :isshowindex, :boolean
+    add_column :tnews, :isshowindex, :boolean
   end
 
   def down

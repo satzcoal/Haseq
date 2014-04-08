@@ -1,5 +1,18 @@
-<h1>New tnews</h1>
+<div class="breadcrumb">
+  <div class="wrap">
+    <div class="container">
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><a href="/admin"><%= t(:label_site_admin) %></a><span>/</span><a href="/admin/products"><%= t(:label_admin_product) %></a><span>/</span><%= t(:label_admin_addproduct) %>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="container">
+    <section>
+      <div class="row">
 
-<%= render 'form' %>
+        <%= render 'form' %>
 
-<%= link_to 'Back', tnews_index_path %>
+      </div>
+    </section>
+  </div>
+</div>

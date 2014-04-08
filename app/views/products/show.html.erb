@@ -12,6 +12,11 @@
         <p id="notice"><%= notice %></p>
 
         <p>
+          <a href="/admin/products/<%= @product.id %>/edit"><input class="btn send_btn" type="button" value="<%= t(:label_admin_edit) %>"></a>
+          <a href="/admin/products"><input class="btn dark_btn" type="button" value="<%= t(:label_product_back) %>"></a>
+        </p>
+
+        <p>
           <b><%= t(:label_admin_name) %>:</b>
           <%= @product.name %>
         </p>
@@ -36,9 +41,7 @@
           <%= @product.introduce %>
         </p>
 
-
-        <%= link_to 'Edit', edit_product_path(@product) %> |
-        <%= link_to 'Back', products_path %>
+        <%= render :partial => 'image_index', :locals => {:product => @product} %>
 
       </div>
     </section>

@@ -17,6 +17,7 @@
             <th style="width: 80px"><%= t(:label_site_catalog) %></th>
             <th><%= t(:label_admin_shortdesc) %></th>
             <th><%= t(:label_admin_picnum) %></th>
+            <th><%= t(:label_admin_isshowindex) %></th>
             <th><%= t(:label_admin_operation) %></th>
           </tr>
 
@@ -27,9 +28,17 @@
                 <td><%= product.shortdesc %></td>
                 <td><%= product.images.count %></td>
                 <td>
-                  <%= link_to 'Show', product %>
-                  <%= link_to 'Edit', edit_product_path(product) %>
-                  <%= link_to 'Destroy', product, method: :delete, data: {confirm: 'Are you sure?'} %>
+                  <% if product.isshowindex %>
+                      <%= t(:label_admin_display) %>
+                  <% else %>
+                      <%= t(:label_admin_hide) %>
+                  <% end %>
+                  <%= link_to t(:label_admin_change), :controller => 'products', :action => 'changeshowindex', id: product %>
+                </td>
+                <td>
+                  <%= link_to t(:label_admin_show), product %>
+                  <%= link_to t(:label_admin_edit), edit_product_path(product) %>
+                  <%= link_to t(:label_admin_delete), product, method: :delete, data: {confirm: 'Are you sure?'} %>
                 </td>
               </tr>
           <% end %>

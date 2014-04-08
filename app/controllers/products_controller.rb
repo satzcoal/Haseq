@@ -81,4 +81,21 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def changeshowindex
+
+    @product = Product.find(params[:id])
+    if @product.isshowindex
+      @product.isshowindex = false
+    else
+      @product.isshowindex = true
+    end
+
+    @product.save
+
+    respond_to do |format|
+      format.html { redirect_to products_url }
+      format.json { head :no_content }
+    end
+  end
 end

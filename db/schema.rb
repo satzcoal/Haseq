@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140408084411) do
+ActiveRecord::Schema.define(:version => 20140408161916) do
 
   create_table "banner_imgs", :force => true do |t|
     t.integer  "nindex"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20140408084411) do
     t.string   "path"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "imagetype"
   end
 
   create_table "messages", :force => true do |t|
@@ -54,10 +55,23 @@ ActiveRecord::Schema.define(:version => 20140408084411) do
     t.datetime "updated_at", :null => false
   end
 
-# Could not dump table "products" because of following StandardError
-#   Unknown type 'isshowindex' for column 'boolean'
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.integer  "catalog_id"
+    t.string   "shortdesc"
+    t.text     "desc"
+    t.text     "introduce"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.boolean  "isshowindex"
+  end
 
-# Could not dump table "tnews" because of following StandardError
-#   Unknown type 'isshowindex' for column 'boolean'
+  create_table "tnews", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.boolean  "isshowindex"
+  end
 
 end

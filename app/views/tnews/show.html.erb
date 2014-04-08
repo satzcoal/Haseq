@@ -1,15 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="breadcrumb">
+  <div class="wrap">
+    <div class="container">
+      <a href="/"><%= t(:label_site_home) %></a><span>/</span><a href="/admin"><%= t(:label_site_admin) %></a><span>/</span><a href="/admin/tnews"><%= t(:label_admin_tnews) %></a><span>/</span><%=@tnews.title%>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="container">
+    <section>
+      <div class="row">
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @tnews.title %>
-</p>
+        <p>
+          <b><%=t(:label_admin_title)%>:</b>
+          <%= @tnews.title %>
+        </p>
 
-<p>
-  <b>Content:</b>
-  <%= @tnews.content %>
-</p>
+        <p>
+          <b><%=t(:label_admin_content)%>:</b>
+          <%= @tnews.content %>
+        </p>
 
 
-<%= link_to 'Edit', edit_tnews_path(@tnews) %> |
-<%= link_to 'Back', tnews_index_path %>
+        <%= link_to 'Edit', edit_tnews_path(@tnews) %> |
+        <%= link_to 'Back', tnews_index_path %>
+
+      </div>
+    </section>
+  </div>
+</div>
