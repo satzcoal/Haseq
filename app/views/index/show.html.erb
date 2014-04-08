@@ -85,7 +85,7 @@
 
 
                   <div class="title_t"><a href="/products/<%= newpost.id %>"><%= newpost.name %></a></div>
-                  <%= newpost.desc %>
+                  <%= newpost.desc[0,200] %>
                   <a href="/products/<%= newpost.id %>" class="arrow_link"><%= t(:label_site_readmore) %></a>
                 </div>
               </li>
