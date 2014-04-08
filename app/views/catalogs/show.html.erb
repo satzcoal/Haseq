@@ -11,14 +11,14 @@
       <div class="row">
         <p id="notice"><%= notice %></p>
 
-        <%= button_to t(:label_product_back), catalogs_path, {class: "btn dark_btn", :method => :get} %>
+        <%= button_to t(:label_admin_edit), edit_catalog_path(@catalog), {class: "btn send_btn", :method => :get} %>
 
         <p>
           <b><%= t(:label_admin_name) %>:</b>
           <%= @catalog.name %>
         </p>
 
-        <%= button_to t(:label_admin_edit), edit_catalog_path(@catalog), {class: "btn send_btn", :method => :get} %>
+        <%= render :partial => 'product_index', :locals => {:catalog => @catalog } %>
 
       </div>
     </section>

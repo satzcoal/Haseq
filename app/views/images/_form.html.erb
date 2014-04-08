@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :product_id %><br />
-    <%= f.number_field :product_id %>
+    <%= f.label t(:label_site_product) %><br />
+    <%= f.select :product_id, Product.all.collect {|c| [ c.name, c.id ] } %>
   </div>
   <% if (:path != nil) && (:path.to_s != 'path') %>
   <div class="field">
@@ -22,7 +22,6 @@
   </div>
   <% end %>
   <div class="field">
-    <%= f.label :path %><br />
     <%= f.file_field :filetmp %>
   </div>
   <div class="actions">

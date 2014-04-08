@@ -5,6 +5,7 @@ Haseq::Application.routes.draw do
   match '/admin/banner_imgs/up' => 'banner_imgs#up'
   match '/admin/banner_imgs/down' => 'banner_imgs#down'
 
+  match '/admin/catalogs/:catalog_id/new' => 'catalogs#newproduct'
   match '/admin/catalogs/up' => 'catalogs#up'
   match '/admin/catalogs/down' => 'catalogs#down'
 

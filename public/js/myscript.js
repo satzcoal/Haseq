@@ -37,7 +37,7 @@ $(document).ready(function(){
 	});
 			
 	//Twitter Setup
-	$(".tweet_block").tweet({
+	/*$(".tweet_block").tweet({
 	  join_text: "auto",
 	  username: "envato",
 	  avatar_size: 0,
@@ -48,9 +48,9 @@ $(document).ready(function(){
 	  auto_join_text_reply: "",
 	  auto_join_text_url: "",
 	  loading_text: "loading tweets..."
-	});	
+	});	*/
 	
-	//Flickr Integration
+	/*Flickr Integration
     $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?id=36334875@N04&lang=en-us&format=json&jsoncallback=?", function(data){
 		$.each(data.items, function(i,item){
 			if(i<=11){ // <— change this number to display more or less images
@@ -58,7 +58,7 @@ $(document).ready(function(){
 				.wrap("<li><a href='" + item.link + "' target='_blank' title='Flickr'></a></li>");
 			}
 		});			
-    });	
+    });	*/
 	
 	//Tooltip
 	$('.follow_us a').tooltip();

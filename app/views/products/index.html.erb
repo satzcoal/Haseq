@@ -10,6 +10,7 @@
     <section>
       <div class="row">
 
+        <%= button_to t(:label_admin_addproduct), new_product_path, {class: "btn send_btn", :method => :get} %>
         <table class="table table-bordered">
           <tr>
             <th style="width: 80px"><%= t(:label_admin_name) %></th>

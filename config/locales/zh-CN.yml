@@ -3,6 +3,7 @@ zh-CN:
   label_site_title: "哈瑟时尚生活会馆"
   label_site_home: "首页"
   label_site_news: "新闻"
+  label_site_news2: "新闻动态"
   label_site_about: "关于我们"
   label_site_product: "产品"
   label_site_contacts: "联系方式"
@@ -10,6 +11,8 @@ zh-CN:
   label_site_submit: "提交"
   label_site_admin: "网站管理"
   label_site_catalog: "产品分类"
+  label_site_taobao: "官方淘宝店"
+  label_site_lastpost: "最近新品"
 
   label_product_all: "全部"
   label_product_back: "返回"
@@ -51,3 +54,4 @@ zh-CN:
   label_admin_picnum: "图片数量"
   label_admin_show: "查看"
   label_admin_productnum: "产品数量"
+  label_admin_isshowindex: "是否在首页显示"

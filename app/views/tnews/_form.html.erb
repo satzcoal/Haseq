@@ -10,7 +10,11 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    <%= f.label t(:label_admin_isshowindex) %>
+    <br/>
+    <%= f.check_box :isshowindex %>
+  </div>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>

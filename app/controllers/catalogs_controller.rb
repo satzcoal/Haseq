@@ -118,4 +118,14 @@ class CatalogsController < ApplicationController
       format.json { render json: @catalogs }
     end
   end
+
+  def newproduct
+    @product = Product.new
+    @product.catalog_id = params[:catalog_id]
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @product }
+    end
+  end
 end

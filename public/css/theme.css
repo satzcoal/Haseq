@@ -258,7 +258,7 @@ img {
 	line-height:24px;
 	font-size:20px;
 	text-transform:uppercase;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans','微软雅黑', sans-serif;
 	font-weight:800;
 	padding-bottom:8px;
 	color:#313131;	
@@ -272,7 +272,7 @@ img {
 	line-height:20px;
 	font-size:18px;
 	color:#3b3b3b;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans','微软雅黑', sans-serif;
 	font-weight:400;
 	position:relative;
 	text-transform:uppercase;
@@ -675,7 +675,7 @@ ul.tweets li {
 }
 .breadcrumb a {
   color:#1e1e1e;
-  font-family: 'Open Sans'，'微软雅黑', sans-serif;
+  font-family: 'Open Sans','微软雅黑', sans-serif;
   font-weight:400;
   font-size:19px;
 }
