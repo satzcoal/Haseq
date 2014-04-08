@@ -35,7 +35,10 @@
           <b><%= t(:label_admin_desc) %>:</b>
           <%= @product.desc %>
         </p>
-
+        <p>
+          <b><%= t(:label_admin_indexpic) %>:</b>
+          <%= image_tag(@product.homepic) %>
+        </p>
         <p>
           <b><%= t(:label_admin_intro) %>:</b>
           <%= @product.introduce %>

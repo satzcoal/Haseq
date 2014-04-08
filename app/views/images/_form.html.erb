@@ -15,10 +15,6 @@
       <%= f.label t(:label_site_product) %>
       <%= f.select :product_id, Product.all.collect { |c| [c.name, c.id] } %>
     </div>
-    <div class="field">
-      <%= f.label t(:label_admin_imagetype) %>
-      <%= f.select :imagetype, [[t(:label_admin_indexpic), '1'], [t(:label_admin_productpic), '2']] %>
-    </div>
     <% if (:path != nil) && (:path.to_s != 'path') %>
         <div class="field">
           <b>Image:</b>

@@ -1,41 +1,45 @@
 <%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+    <% if @product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-      <ul>
-        <% @product.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+          <ul>
+            <% @product.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label t(:label_admin_name) %>
+      <%= f.text_field :name %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label t(:label_admin_name) %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label t(:label_site_catalog) %>
-    <%= f.select :catalog_id, Catalog.order('nindex').collect { |c| [c.name, c.id] } %>
-  </div>
-  <div class="field">
-    <%= f.label t(:label_admin_isshowindex) %>
-    <%= f.check_box :isshowindex %>
-  </div>
-  <div class="field">
-    <%= f.label t(:label_admin_shortdesc) %>
-    <%= f.text_field :shortdesc %>
-  </div>
-  <div class="field">
-    <%= f.label t(:label_admin_desc) %>
-    <%= f.text_area :desc %>
-  </div>
-  <div class="field">
-    <%= f.label t(:label_admin_intro) %>
-    <%= f.text_area :introduce %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label t(:label_site_catalog) %>
+      <%= f.select :catalog_id, Catalog.order('nindex').collect { |c| [c.name, c.id] } %>
+    </div>
+    <div class="field">
+      <%= f.label t(:label_admin_isshowindex) %>
+      <%= f.check_box :isshowindex %>
+    </div>
+    <div class="field">
+      <%= f.label t(:label_admin_indexpic) %>
+      <%= f.file_field :filetmp %>
+    </div>
+    <div class="field">
+      <%= f.label t(:label_admin_shortdesc) %>
+      <%= f.text_field :shortdesc %>
+    </div>
+    <div class="field">
+      <%= f.label t(:label_admin_desc) %>
+      <%= f.text_area :desc %>
+    </div>
+    <div class="field">
+      <%= f.label t(:label_admin_intro) %>
+      <%= f.text_area :introduce %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

@@ -17,15 +17,6 @@
         </p>
 
         <p>
-          <b><%= t(:label_admin_imagetype) %>:</b>
-          <% if @image.imagetype == '1' %>
-              <%= t(:label_admin_indexpic) %>
-          <% else %>
-              <%= t(:label_admin_productpic) %>
-          <% end %>
-        </p>
-
-        <p>
           <b>Image:</b>
           <%= image_tag(@image.path) %>
         </p>

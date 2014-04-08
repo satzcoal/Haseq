@@ -77,8 +77,8 @@
           <% @newposts.each do |newpost| %>
               <li>
                 <div class="post_carousel">
-                  <% if newpost.images.count != 0 %>
-                      <img src="<%= newpost.images.first().path %>" alt=""/>
+                  <% if newpost.homepic != nil %>
+                      <img src="<%= newpost.homepic %>" alt=""/>
                   <% else %>
                       <img src="/images/preload_img.gif" alt=""/>
                   <% end %>
@@ -141,46 +141,6 @@
                 <div class="clear"></div>
               </li>
           <% end %>
-          <li>
-            <div class="news_date">05 apr<span>2019</span></div>
-            <div class="news_t"><a href="#">eget &amp; massa viviamu marius mas</a></div>
-            <div class="news">Posted by <a href="#">Anna Smith</a> / In <a href="#">City</a><br/>Tags:
-              <a href="#">eget</a>, <a href="#">mauris</a></div>
-            <div class="news_info">Cursus sed, aliquet nec odio. Integer ornare tincidunt neque a
-              tristique. Phasellus
-              porttitor millis tortor etoq vestibulum. Quisque ont lacus toirtor uis accumsan nibh. Lorem
-              ipsum dolor
-              sit amet, consectetur adipiscing elit. Nullam ulvinarteses em sed.
-              <a href="#">Read more...</a></div>
-            <div class="clear"></div>
-          </li>
-          <li>
-            <div class="news_date">15 apr<span>2019</span></div>
-            <div class="news_t"><a href="#">Sed massa dui, porta corper ac varius!</a></div>
-            <div class="news">Posted by <a href="#">Anna Smith</a> / In <a href="#">City</a><br/>Tags:
-              <a href="#">eget</a>, <a href="#">mauris</a></div>
-            <div class="news_info">Tristique tincidunt cursus sed, ornare ncidunt eque a tristique.
-              Phasellus porttitor
-              mollis tortor etoq vestibulum. Quisque non lacus tortor, quis cumsan nibh. Lorem ipsum dolor
-              sit amet,
-              consectetur icing elit. Nullam pulvinarteses lorem sed dui euismod eget.
-              <a href="#">Read more...</a>
-            </div>
-            <div class="clear"></div>
-          </li>
-          <li>
-            <div class="news_date">05 apr<span>2019</span></div>
-            <div class="news_t"><a href="#">eget &amp; massa viviamu marius mas</a></div>
-            <div class="news">Posted by <a href="#">Anna Smith</a> / In <a href="#">City</a><br/>Tags:
-              <a href="#">eget</a>, <a href="#">mauris</a></div>
-            <div class="news_info">Cursus sed, aliquet nec odio. Integer ornare tincidunt neque a
-              tristique. Phasellus
-              porttitor millis tortor etoq vestibulum. Quisque ont lacus toirtor uis accumsan nibh. Lorem
-              ipsum dolor
-              sit amet, consectetur adipiscing elit. Nullam ulvinarteses em sed.
-              <a href="#">Read more...</a></div>
-            <div class="clear"></div>
-          </li>
         </ul>
       </div>
     </div>

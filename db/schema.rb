@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140408161916) do
+ActiveRecord::Schema.define(:version => 20140408175915) do
 
   create_table "banner_imgs", :force => true do |t|
     t.integer  "nindex"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20140408161916) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.boolean  "isshowindex"
+    t.string   "homepic"
   end
 
   create_table "tnews", :force => true do |t|

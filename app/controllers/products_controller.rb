@@ -57,6 +57,16 @@ class ProductsController < ApplicationController
   # PUT /products/1
   # PUT /products/1.json
   def update
+    uploaded_io = params[:product][:filetmp]
+    if uploaded_io != nil
+      @filepath = rand(0xffffff).to_s + uploaded_io.original_filename
+      File.open(Rails.root.join('public', 'uploads', 'productimg', @filepath), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+      params[:product].delete('filetmp')
+      params[:product][:homepic] = '/uploads/productimg/' + @filepath
+    end
+
     @product = Product.find(params[:id])
 
     respond_to do |format|
