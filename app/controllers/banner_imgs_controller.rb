@@ -53,8 +53,11 @@ class BannerImgsController < ApplicationController
     end
 
     @banner_img = BannerImg.new(params[:banner_img])
-    @banner_img.nindex = BannerImg.order('nindex').last().nindex + 1
-
+    if BannerImg.order('nindex').count != 0
+      @banner_img.nindex = BannerImg.order('nindex').last().nindex + 1
+    else
+      @banner_img.nindex = 1
+    end
     respond_to do |format|
       if @banner_img.save
         format.html { redirect_to @banner_img, notice: 'Banner img was successfully created.' }

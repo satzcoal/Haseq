@@ -3,7 +3,7 @@ a, input, select, textarea {outline:none !important;
 body { overflow-x:hidden;
 }
 .font {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans','微软雅黑', sans-serif;
 	font-weight:400; /*Normal*/
 	font-weight:600; /*Semi-Bold*/
 	font-weight:700; /*Bold*/
@@ -101,7 +101,7 @@ img {
 .menu_wrap .nav li a {
   line-height:18px;
   color: #313131;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans','微软雅黑', sans-serif;
   font-weight:800;
   font-size:14px;
   text-transform: uppercase;
@@ -300,7 +300,7 @@ h2.title {
 	line-height:28px;
 	text-transform:uppercase;
 	color:#313131;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans','微软雅黑', sans-serif;
 	font-weight:800;
 }
 h2.title a {
@@ -665,7 +665,7 @@ ul.tweets li {
   list-style: none;
   background:#d1d1d1;
   color:#d00b01;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans','微软雅黑', sans-serif;
   font-weight:400;
   font-size:19px;
 }
@@ -675,7 +675,7 @@ ul.tweets li {
 }
 .breadcrumb a {
   color:#1e1e1e;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans'，'微软雅黑', sans-serif;
   font-weight:400;
   font-size:19px;
 }

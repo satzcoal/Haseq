@@ -41,7 +41,12 @@ class CatalogsController < ApplicationController
   # POST /catalogs.json
   def create
     @catalog = Catalog.new(params[:catalog])
-    @catalog.nindex = Catalog.order('nindex').last().nindex + 1
+
+    if Catalog.order('nindex').count != 0
+      @catalog.nindex = Catalog.order('nindex').last().nindex + 1
+    else
+      @catalog.nindex = 1
+    end
 
     respond_to do |format|
       if @catalog.save
