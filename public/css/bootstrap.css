@@ -160,7 +160,7 @@ textarea {
 body {
   margin: 0;
   padding:0;
-  font-family: Arial;
+  font-family: Arial,'微软雅黑';
   font-size: 12px;
   line-height: 18px;
   color: #313131;
@@ -941,7 +941,7 @@ input,
 button,
 select,
 textarea {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial,'微软雅黑', sans-serif;
 }
 
 label {

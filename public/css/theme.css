@@ -371,7 +371,7 @@ h2.upper {
 .post_carousel .title_t a, .news_t a {
 	font-size:17px;
 	text-transform:uppercase;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans','微软雅黑', sans-serif;
 	font-weight:400;
 	color:#d00b01;
 }
